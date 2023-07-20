@@ -1,0 +1,27 @@
+{% extends 'copybook_log/base.html' %}
+
+{% block page_header %}
+    <h3>{{ topic }}</h3>
+{% endblock page_header %}
+
+{% block content %}
+  <p>
+    <a href="{% url 'copybook_log:new_article_page' topic.id %}">добавить новую статью</a>
+  </p>
+
+  {% for summary in summarys %}
+      <div class="card mb-3">
+        <h4 class="card-header">
+          {{ summary.date_added|date:'d-m-y H:i' }}
+          <small><a href="{% url 'copybook_log:edit_article_page' summary.id %}">
+            Редактировать статью</a></small>
+        </h4>
+        <div class="card-body">
+          {{ summary.heading|linebreaks }}
+        </div>
+      </div>
+    {% empty %}
+      <p>В этой теме пока нет записей.</p>
+    {% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,21 @@
+{% extends 'copybook_log/base.html' %}
+
+{% block page_header %}
+    <h1>Ваши темы</h1>
+{% endblock page_header %}
+
+{% block content %}
+
+    <ul>
+        {% for topic in topics %}
+            <li><h3>
+                <a href="{% url 'copybook_log:article_page' topic.id %}">{{ topic }}</a>
+            </h3></li>
+        {% empty %}
+        <li><h3>У вас еще нет тем.</h3></li>
+        {% endfor %}
+    </ul>
+
+    <h3><a href="{% url 'copybook_log:new_topic_page' %}">Добавить новую тему</a></h3>
+
+{% endblock content %}

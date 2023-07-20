@@ -1,0 +1,13 @@
+{% extends 'copybook_log/base.html' %}
+
+{% block content %}
+
+  <p><a href="{% url 'copybook_log:article_page' topic.id %}">{{ topic }}</a></p>
+  <p>Добавить новую статью</p>
+  <form action="{% url 'copybook_log:new_article_page' topic.id %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name="submit">добавить статью</button>
+  </form>
+
+{% endblock content %}

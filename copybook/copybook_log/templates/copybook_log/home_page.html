@@ -1,0 +1,13 @@
+{% extends 'copybook_log/base.html' %}
+
+{% block page_header %}
+    <div class="jumbotron">
+        <h1 class="display-3">Следите за своим обучением.</h1>
+
+        <p class="lead">Составьте свою собственную тетрадь и ведите список тем, которые вы изучаете.
+            Всякий раз, когда вы узнаете что-то новое по какой-либо теме,
+            делайте запись, обобщающую то, что вы узнали.</p>
+        <a class="btn btn-lg btn-primary" href="{% url 'users:register' %}"
+           role="button">Регистрация &raquo;</a>
+    </div>
+{% endblock page_header %}
